@@ -85,5 +85,22 @@ def traverse_floors(direction):
     return current_floor
 
 
+def basement_position(direction):
+    current_position = 0
+    current_floor = 0
+    for i in direction:
+        if current_floor == -1:
+            break
+        if i == '(':
+            current_floor += 1
+        else:
+            current_floor -= 1
+        current_position += 1
+    return current_position
+
+
 if __name__ == '__main__':
+    """ Part 1 """
     print(traverse_floors(floor_input))
+    """ Part 2 """
+    print(basement_position(floor_input))
